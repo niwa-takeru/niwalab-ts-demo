@@ -4,11 +4,12 @@
   "description": "Niwalab TypeScript Demo App",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tkrplus/niwalab-ts-demo.git"
+    "url": "https://github.com/tkrplus/niwalab-ts-demo.git"
   },
   "keywords": [
     "typescript",
@@ -19,5 +20,18 @@
   "bugs": {
     "url": "https://github.com/tkrplus/niwalab-ts-demo/issues"
   },
-  "homepage": "https://github.com/tkrplus/niwalab-ts-demo#readme"
+  "homepage": "https://github.com/tkrplus/niwalab-ts-demo#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
 }
