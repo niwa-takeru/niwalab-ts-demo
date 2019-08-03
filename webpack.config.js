@@ -1,3 +1,7 @@
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
 module.exports = {
 
   mode: "development",
@@ -8,7 +12,7 @@ module.exports = {
 
   output: {
     path: `${__dirname}/dist`,
-    filename: "main.js"
+    filename: "main.[hash].js"
   },
 
   resolve: {
@@ -32,5 +36,19 @@ module.exports = {
         loader: "source-map-loader"
       }
     ]
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: `${__dirname}/public/index.html`
+    })
+  ],
+
+  devServer: {
+    open: true,
+    contentBase: `${__dirname}/dist`,
+    watchContentBase: true
   }
 }
