@@ -2,7 +2,7 @@ import { combineReducers, createStore } from "redux";
 import Todos, { TodosActions } from "./Todos/Todos";
 
 const reducer = combineReducers({
-  Todos
+  TodosState: Todos
 });
 
 const store = createStore(reducer);

@@ -1,11 +1,41 @@
-import { Action } from "redux";
+import { Action, Reducer } from "redux";
 
 // Actions
-enum ActionType {}
+enum TodosActionTypes {
+  ADD = "niwalab-ts-demo/Todos/ADD",
+  REMOVE = "niwalab-ts-demo/Todos/REMOVE"
+}
 
-export type TodosActions = Action;
+interface AddAction extends Action {
+  type: typeof TodosActionTypes.ADD;
+  payload: {
+    text: string;
+  };
+}
+
+interface RemoveAction extends Action {
+  type: typeof TodosActionTypes.REMOVE;
+  payload: {
+    index: number;
+  };
+}
+
+export type TodosActions = AddAction | RemoveAction;
 
 // Action Creators
+export const add = (text: string): AddAction => ({
+  type: TodosActionTypes.ADD,
+  payload: {
+    text: text
+  }
+});
+
+export const remove = (index: number): RemoveAction => ({
+  type: TodosActionTypes.REMOVE,
+  payload: {
+    index: index
+  }
+});
 
 // State
 export interface TodosState {
@@ -13,14 +43,27 @@ export interface TodosState {
 }
 
 const initialState: TodosState = {
-  todos: ["test todo1", "test todo2", "test todo3", "test todo4"]
+  todos: ["<sample> todo"]
 };
 
 // Reducer
-const reducer = (state: TodosState = initialState, action: Action) => {
+const reducer: Reducer<TodosState, TodosActions> = (
+  state = initialState,
+  action
+) => {
   switch (action.type) {
+    case TodosActionTypes.ADD:
+      return {
+        ...state,
+        todos: [...state.todos, action.payload.text]
+      };
+    case TodosActionTypes.REMOVE:
+      return {
+        ...state,
+        todos: state.todos.filter((_, index) => index != action.payload.index)
+      };
     default:
-      // const _: never = action;
+      const _: never = action;
       return state;
   }
 };
