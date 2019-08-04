@@ -9,16 +9,15 @@ interface Props {
 
 const Todos: React.FC<Props> = props => {
   const textInput = React.createRef<HTMLInputElement>();
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+    props.add(textInput.current.value);
+    textInput.current.value = null;
+  };
   return (
     <DefaultTemplate>
       <h1>Todos</h1>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          props.add(textInput.current.value);
-          textInput.current.value = null;
-        }}
-      >
+      <form onSubmit={handleAdd}>
         <input type="text" name="text" ref={textInput} />
         <input type="submit" value="add" />
       </form>
@@ -27,6 +26,7 @@ const Todos: React.FC<Props> = props => {
           <div key={index}>
             {todo}
             <button
+              value={index}
               onClick={e => {
                 e.preventDefault();
                 props.remove(index);

@@ -26,14 +26,14 @@ export type TodosActions = AddAction | RemoveAction;
 export const add = (text: string): AddAction => ({
   type: TodosActionTypes.ADD,
   payload: {
-    text: text
+    text
   }
 });
 
 export const remove = (index: number): RemoveAction => ({
   type: TodosActionTypes.REMOVE,
   payload: {
-    index: index
+    index
   }
 });
 
@@ -60,7 +60,9 @@ const reducer: Reducer<TodosState, TodosActions> = (
     case TodosActionTypes.REMOVE:
       return {
         ...state,
-        todos: state.todos.filter((_, index) => index != action.payload.index)
+        todos: state.todos.filter(
+          (todo, index) => index !== action.payload.index
+        )
       };
     default:
       const _: never = action;

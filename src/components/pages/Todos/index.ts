@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { TodosActions } from "~/src/modules/Todos/Todos";
 import { AppState } from "~/src/modules/store";
+import { TodosActions } from "~/src/modules/Todos/Todos";
 import { add, remove } from "~/src/modules/Todos/Todos";
 import Todos from "./Todos";
 
