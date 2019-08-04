@@ -1,4 +1,3 @@
-import DefaultTemplate from "./DefaultTemplate"
+import DefaultTemplate from "./DefaultTemplate";
 
-export default DefaultTemplate
-
+export default DefaultTemplate;

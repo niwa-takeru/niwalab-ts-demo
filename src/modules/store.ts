@@ -1,14 +1,13 @@
-import { createStore, combineReducers } from "redux"
-import Todos, { TodosActions } from "./Todos/Todos"
+import { combineReducers, createStore } from "redux";
+import Todos, { TodosActions } from "./Todos/Todos";
 
 const reducer = combineReducers({
   Todos
-})
+});
 
-const store = createStore(reducer)
+const store = createStore(reducer);
 
-export default store
+export default store;
 
-export type AppActions = TodosActions
-export type AppState = ReturnType<typeof store.getState>
-
+export type AppActions = TodosActions;
+export type AppState = ReturnType<typeof store.getState>;

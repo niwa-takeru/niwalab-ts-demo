@@ -1,14 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
-type DefaultTemplateProps = {
-}
+const DefaultTemplate: React.FC = props => {
+  return <>{props.children}</>;
+};
 
-const DefaultTemplate: React.FC<DefaultTemplateProps> = (props) => {
-  return (
-    <>
-      {props.children}
-    </>
-  )
-}
-
-export default DefaultTemplate
+export default DefaultTemplate;
