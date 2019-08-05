@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { AppState } from "~/src/modules/store";
-import { TodosActions } from "~/src/modules/Todos/Todos";
-import { add, remove } from "~/src/modules/Todos/Todos";
+import { TodosActions } from "~/src/modules/Todos";
+import { add, remove } from "~/src/modules/Todos/actions";
 import Todos from "./Todos";
 
 const mapStateToPorps = (state: AppState) => {

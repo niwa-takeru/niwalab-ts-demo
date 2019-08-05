@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import Todos, { TodosActions } from "./Todos/Todos";
+import Todos, { TodosActions } from "./Todos";
 
 const reducer = combineReducers({
   TodosState: Todos
